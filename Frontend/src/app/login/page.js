@@ -13,19 +13,19 @@ export default function LoginPage() {
     username: '',
     password: ''
   })
-  const [errors, setErrors] = useState<{ username?: string; password?: string; general?: string }>({})
+  const [errors, setErrors] = useState({})
   const [isLoading, setIsLoading] = useState(false)
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e) => {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
-    if (errors[name as keyof typeof errors]) {
+    if (errors[name]) {
       setErrors(prev => ({ ...prev, [name]: undefined }))
     }
   }
 
   const validateForm = () => {
-    const newErrors: typeof errors = {}
+    const newErrors = {}
     
     if (!formData.username.trim()) {
       newErrors.username = 'Username is required'
@@ -43,7 +43,7 @@ export default function LoginPage() {
     return Object.keys(newErrors).length === 0
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     
     if (!validateForm()) return
@@ -138,7 +138,7 @@ export default function LoginPage() {
           </form>
           
           <div className={styles.footer}>
-            <p>Don't have an account? <Link href="/register" className={styles.link}>Register here</Link></p>
+            <p>Don&apos;t have an account? <Link href="/register" className={styles.link}>Register here</Link></p>
           </div>
         </div>
       </div>

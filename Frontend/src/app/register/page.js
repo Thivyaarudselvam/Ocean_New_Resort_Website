@@ -16,10 +16,10 @@ export default function RegisterPage() {
     password: '',
     confirmPassword: ''
   })
-  const [errors, setErrors] = useState<Record<string, string>>({})
+  const [errors, setErrors] = useState({})
   const [isLoading, setIsLoading] = useState(false)
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e) => {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
     if (errors[name]) {
@@ -28,7 +28,7 @@ export default function RegisterPage() {
   }
 
   const validateForm = () => {
-    const newErrors: Record<string, string> = {}
+    const newErrors = {}
     
     if (!formData.fullName.trim()) {
       newErrors.fullName = 'Full name is required'
@@ -62,7 +62,7 @@ export default function RegisterPage() {
     return Object.keys(newErrors).length === 0
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     
     if (!validateForm()) return
