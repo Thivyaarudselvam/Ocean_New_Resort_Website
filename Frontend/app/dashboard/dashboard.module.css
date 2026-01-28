@@ -1,0 +1,254 @@
+/* Dashboard Layout Styles */
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a1628 0%, #0f2744 100%);
+}
+
+/* Loading State */
+.loading {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background: linear-gradient(135deg, #0a1628 0%, #0f2744 100%);
+  color: #94a3b8;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #334155;
+  border-top-color: #14b8a6;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Mobile Header */
+.mobileHeader {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: #1e293b;
+  border-bottom: 1px solid #334155;
+  padding: 0 16px;
+  align-items: center;
+  gap: 16px;
+  z-index: 50;
+}
+
+.menuBtn {
+  background: none;
+  border: none;
+  color: #f1f5f9;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.menuBtn:hover {
+  background: #334155;
+}
+
+.mobileTitle {
+  font-weight: 600;
+  color: #f1f5f9;
+  font-size: 1.1rem;
+}
+
+/* Sidebar Overlay */
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 90;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 280px;
+  background: #1e293b;
+  border-right: 1px solid #334155;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 100;
+}
+
+.sidebarHeader {
+  padding: 24px 20px;
+  border-bottom: 1px solid #334155;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.logoIcon {
+  font-size: 1.75rem;
+}
+
+.logoText {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+/* Navigation */
+.nav {
+  flex: 1;
+  padding: 20px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  color: #94a3b8;
+  border-radius: 8px;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+
+.navItem:hover {
+  background: #334155;
+  color: #f1f5f9;
+}
+
+.navItemActive {
+  background: linear-gradient(135deg, rgba(20, 184, 166, 0.2) 0%, rgba(14, 165, 233, 0.2) 100%);
+  color: #14b8a6;
+}
+
+.navItemActive:hover {
+  background: linear-gradient(135deg, rgba(20, 184, 166, 0.3) 0%, rgba(14, 165, 233, 0.3) 100%);
+  color: #14b8a6;
+}
+
+/* Sidebar Footer */
+.sidebarFooter {
+  padding: 20px;
+  border-top: 1px solid #334155;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.userAvatar {
+  width: 42px;
+  height: 42px;
+  background: linear-gradient(135deg, #14b8a6 0%, #0ea5e9 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: white;
+  font-size: 1.1rem;
+}
+
+.userDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.userName {
+  font-weight: 600;
+  color: #f1f5f9;
+  font-size: 0.95rem;
+}
+
+.userRole {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.logoutBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  background: transparent;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  color: #94a3b8;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.logoutBtn:hover {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+/* Main Content */
+.main {
+  flex: 1;
+  margin-left: 280px;
+  padding: 32px;
+  min-height: 100vh;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .main {
+    margin-left: 0;
+    padding-top: 92px;
+  }
+  
+  .mobileHeader {
+    display: flex;
+  }
+  
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+  
+  .sidebarOpen {
+    transform: translateX(0);
+  }
+  
+  .overlay {
+    display: block;
+  }
+}
+
+@media (max-width: 640px) {
+  .main {
+    padding: 16px;
+    padding-top: 84px;
+  }
+}
